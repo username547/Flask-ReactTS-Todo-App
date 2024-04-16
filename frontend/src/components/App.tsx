@@ -84,8 +84,9 @@ function App(): JSX.Element {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      const data: ITodo[] = await response.json();
-      setTodos(data);
+      const responseData = await response.json();
+      const todos: ITodo[] = responseData && responseData.todos ? responseData.todos : [];
+      setTodos(todos);
     } catch (error) {
       console.error("Error fetching todos:", error);
     }

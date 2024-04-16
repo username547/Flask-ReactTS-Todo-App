@@ -11,10 +11,22 @@
     font-size: 14px;
 }
 
-.btn-create{
+.btn-create {
     padding: 8px;
     border: none;
     border-radius: 8px;
     color: white;
     background-color: #53377A;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.error-message {
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    color: red;
+    font-size: 0.6em;
 }
