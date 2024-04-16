@@ -1,0 +1,17 @@
+.todo-table {
+	width: 100%;
+	margin-top: 14px;
+	border: 1px solid #dddddd;
+	border-collapse: collapse; 
+}
+
+.todo-table th {
+	padding: 5px;
+	border: 1px solid #dddddd;
+	font-weight: bold;
+}
+
+.todo-table td {
+	border: 1px solid #dddddd;
+	padding: 5px;
+}

@@ -1,0 +1,23 @@
+.btn-complete, .btn-update, .btn-delete, .btn-save, .btn-cancel {
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+}
+
+.btn-complete, .btn-save {
+    background-color: #29AB87;
+}
+
+.btn-update {
+    background-color: #F4A900;
+}
+
+.btn-delete, .btn-cancel {
+    background-color: #C51D34;
+}
+
+.todo-item-input {
+    border: none;
+    outline: none;
+}
