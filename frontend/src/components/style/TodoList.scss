@@ -2,16 +2,31 @@
 	width: 100%;
 	margin-top: 14px;
 	border: 1px solid #dddddd;
-	border-collapse: collapse; 
+	border-collapse: collapse;
 }
 
-.todo-table th {
-	padding: 5px;
-	border: 1px solid #dddddd;
-	font-weight: bold;
-}
-
+.todo-table th,
 .todo-table td {
-	border: 1px solid #dddddd;
 	padding: 5px;
+	border: 1px solid #dddddd;
+}
+
+.todo-table th:first-child,
+.todo-table td:first-child {
+	width: 10%;
+}
+
+.todo-table th:nth-child(2),
+.todo-table td:nth-child(2) {
+	width: 45%;
+}
+
+.todo-table th:nth-child(3),
+.todo-table td:nth-child(3) {
+	width: 15%;
+}
+
+.todo-table th:nth-child(4),
+.todo-table td:nth-child(4) {
+	width: 30%;
 }

@@ -3,48 +3,52 @@ import { ITodo, ITodoDto } from "./App";
 import './style/TodoItem.scss'
 
 interface TodoItemProps {
-    todo: ITodo;
-    updateTodo: (id: number, dto: ITodoDto) => void;
-    completeTodo: (id: number) => void;
-    deleteTodo: (id: number) => void;
-  }
-  
-  function TodoItem({ todo, updateTodo, completeTodo, deleteTodo }: TodoItemProps): JSX.Element {
-    const [isUpdating, setIsUpdating] = useState(false);
-    const [todoTitle, setTodoTitle] = useState(todo.title);
-  
-    const handleSaveUpdate = () => {
-      updateTodo(todo.id, { title: todoTitle });
-      setIsUpdating(false);
-    };
-  
-    const handleCancelUpdate = () => {
-      setTodoTitle(todo.title);
-      setIsUpdating(false);
-    };
-  
-    const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setTodoTitle(e.target.value);
-    };
-  
-    return (
-      <tr key={todo.id} data-testid="todo-item">
-        <td>{todo.id}</td>
-        <td>
+  todo: ITodo;
+  updateTodo: (id: number, dto: ITodoDto) => void;
+  completeTodo: (id: number) => void;
+  deleteTodo: (id: number) => void;
+}
+
+function TodoItem({ todo, updateTodo, completeTodo, deleteTodo }: TodoItemProps): JSX.Element {
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [todoTitle, setTodoTitle] = useState(todo.title);
+
+  const handleSaveUpdate = () => {
+    updateTodo(todo.id, { title: todoTitle });
+    setIsUpdating(false);
+  };
+
+  const handleCancelUpdate = () => {
+    setTodoTitle(todo.title);
+    setIsUpdating(false);
+  };
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTodoTitle(e.target.value);
+  };
+
+  return (
+    <tr key={todo.id} data-testid="todo-item">
+      <td>{todo.id}</td>
+      <td>
+        <div className="todo-item-content">
           {isUpdating ? (
-            <input 
-              type="text" 
-              value={todoTitle} 
-              className="todo-item-input" 
+            <input
+              type="text"
+              value={todoTitle}
+              className="todo-item-input"
               onChange={handleTitleChange}
               data-testid="todo-item-input"
             />
           ) : (
             <span className="todo-text">{todoTitle}</span>
           )}
-        </td>
-        <td>{todo.completed.toString()}</td>
-        <td>
+        </div>
+
+      </td>
+      <td>{todo.completed.toString()}</td>
+      <td>
+        <div className="btn-wrapper">
           {isUpdating ? (
             <>
               <button className="btn-save" onClick={handleSaveUpdate} data-testid="save-button">Save</button>
@@ -57,9 +61,10 @@ interface TodoItemProps {
               <button className="btn-delete" onClick={() => deleteTodo(todo.id)} data-testid="delete-button">Delete</button>
             </>
           )}
-        </td>
-      </tr>
-    );
-  }
-  
-  export default TodoItem;
+        </div>
+      </td>
+    </tr>
+  );
+}
+
+export default TodoItem;

@@ -1,11 +1,29 @@
-.btn-complete, .btn-update, .btn-delete, .btn-save, .btn-cancel {
+.todo-text,
+.todo-item-input {
+    padding: 0;
+    font-size: 16px;
+    line-height: 24px;  
+}
+
+.todo-item-input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
+}
+
+.btn-complete,
+.btn-update,
+.btn-delete,
+.btn-save,
+.btn-cancel {
     padding: 8px;
     border: none;
     border-radius: 8px;
     color: white;
 }
 
-.btn-complete, .btn-save {
+.btn-complete,
+.btn-save {
     background-color: #29AB87;
 }
 
@@ -13,11 +31,14 @@
     background-color: #F4A900;
 }
 
-.btn-delete, .btn-cancel {
+.btn-delete,
+.btn-cancel {
     background-color: #C51D34;
 }
 
-.todo-item-input {
-    border: none;
-    outline: none;
+.btn-wrapper {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
 }

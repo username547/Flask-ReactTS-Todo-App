@@ -16,7 +16,7 @@ function TodoForm({ createTodo }: TodoFormProps): JSX.Element {
     const errors: Partial<ITodoDto> = {};
     if (!values.title) errors.title = "Required";
     else if (values.title.length < 3) errors.title = "Title must be at least 3 characters long";
-    else if (!/^[a-zA-Z]+$/i.test(values.title)) errors.title = "Title must contain only Latin letters";
+    else if (!/^[a-zA-Z\s]+$/i.test(values.title)) errors.title = "Title must contain only Latin letters";
     return errors;
   };
 
