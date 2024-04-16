@@ -28,7 +28,7 @@ interface TodoItemProps {
     };
   
     return (
-      <tr key={todo.id}>
+      <tr key={todo.id} data-testid="todo-item">
         <td>{todo.id}</td>
         <td>
           {isUpdating ? (
@@ -37,6 +37,7 @@ interface TodoItemProps {
               value={todoTitle} 
               className="todo-item-input" 
               onChange={handleTitleChange}
+              data-testid="todo-item-input"
             />
           ) : (
             <span className="todo-text">{todoTitle}</span>
@@ -46,14 +47,14 @@ interface TodoItemProps {
         <td>
           {isUpdating ? (
             <>
-              <button className="btn-save" onClick={handleSaveUpdate}>Save</button>
-              <button className="btn-cancel" onClick={handleCancelUpdate}>Cancel</button>
+              <button className="btn-save" onClick={handleSaveUpdate} data-testid="save-button">Save</button>
+              <button className="btn-cancel" onClick={handleCancelUpdate} data-testid="cancel-button">Cancel</button>
             </>
           ) : (
             <>
-              <button className="btn-complete" onClick={() => completeTodo(todo.id)}>Complete</button>
-              <button className="btn-update" onClick={() => setIsUpdating(true)}>Update</button>
-              <button className="btn-delete" onClick={() => deleteTodo(todo.id)}>Delete</button>
+              <button className="btn-complete" onClick={() => completeTodo(todo.id)} data-testid="complete-button">Complete</button>
+              <button className="btn-update" onClick={() => setIsUpdating(true)} data-testid="update-button">Update</button>
+              <button className="btn-delete" onClick={() => deleteTodo(todo.id)} data-testid="delete-button">Delete</button>
             </>
           )}
         </td>
