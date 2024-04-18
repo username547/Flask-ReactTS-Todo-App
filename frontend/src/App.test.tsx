@@ -138,4 +138,37 @@ describe('Functional Tests', () => {
 
     await waitFor(() => expect(completeTodoMock).toHaveBeenCalledWith(todo.id));
   });
+
+  test('displays error message when title is not provided', async () => {
+    const { getByTestId, getByText } = render(<TodoForm createTodo={() => {}} />);
+    
+    const button = getByTestId('todo-button');
+    fireEvent.click(button);
+  
+    await waitFor(() => expect(getByText('Required')).toBeInTheDocument());
+  });
+  
+  test('displays error message when title length is less than 3', async () => {
+    const { getByTestId, getByText } = render(<TodoForm createTodo={() => {}} />);
+    
+    const input = getByTestId('todo-input');
+    fireEvent.change(input, { target: { value: 'Te' } });
+  
+    const button = getByTestId('todo-button');
+    fireEvent.click(button);
+  
+    await waitFor(() => expect(getByText('Title must be at least 3 characters long')).toBeInTheDocument());
+  });
+  
+  test('displays error message when title contains non-Latin letters', async () => {
+    const { getByTestId, getByText } = render(<TodoForm createTodo={() => {}} />);
+    
+    const input = getByTestId('todo-input');
+    fireEvent.change(input, { target: { value: 'Новое дело' } });
+  
+    const button = getByTestId('todo-button');
+    fireEvent.click(button);
+  
+    await waitFor(() => expect(getByText('Title must contain only Latin letters')).toBeInTheDocument());
+  });
 });
